@@ -1,0 +1,33 @@
+{
+  "MUSIC": [
+    {
+      "name": "HDDBOY / GUCCIMAZE",
+      "src": "/assets/images/works/music/work1.jpg",
+      "url": "/works/music/work1.html"
+    },
+    {
+      "name": "Elise By Olsen",
+      "src": "/assets/images/works/music/work2.jpg",
+      "url": "/works/music/work1.html"
+    }
+  ],
+  "MAGAZINE": [
+    {
+      "name": "PAN MAGAZINE",
+      "src": "/assets/images/works/magazine/work1.jpg",
+      "url": "/works/magazine/work1.html"
+    }
+  ],
+  "CREATION": [
+    {
+      "name": "Elise By Olsen",
+      "src": "/assets/images/works/creation/work1.jpg",
+      "url": "/works/creation/work1.html"
+    },
+    {
+      "name": "KENTA MATSUI",
+      "src": "/assets/images/works/creation/work2.jpg",
+      "url": "/works/creation/work1.html"
+    }
+  ]
+}
