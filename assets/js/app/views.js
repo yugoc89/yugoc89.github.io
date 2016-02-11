@@ -14,10 +14,13 @@ define([
 	], function($, _, Backbone, classie, TweenLite, TimelineLite, Router, Collections, Models, Globals){
 
 	var mainLoader = document.getElementById('loader');
-	var loadAnim = function(){
+	var loadAnim = function(colour){
 
 		var el = document.getElementById('square');
-		TweenLite.defaultEase = Linear.easeNone;
+		var spans = el.getElementsByTagName('span');
+		for (var i = spans.length - 1; i >= 0; i--) {
+			spans[i].style.backgroundColor = colour;
+		}
 		TweenLite.set(el, {autoAlpha: 1});
 
 		var tl = new TimelineLite({ onComplete: Loader() });
@@ -149,7 +152,7 @@ define([
 			var self = this;
 
 			this.delegateEvents();
-			loadAnim();
+			loadAnim('#504f4f');
 			this.mainAnim();
 
 			setInterval(function(){
@@ -205,7 +208,7 @@ define([
 			TweenLite.set('.content--services.bottom', {autoAlpha:0, y: '20%'});
 			this.setImageSize();
 			this.parallax();
-			loadAnim();
+			loadAnim('#f6f4f4');
 			$(this.el).on('scroll', this.parallax);
 			$(window).on('resize', this.setImageSize);
 		},
@@ -225,7 +228,7 @@ define([
 			$('.white-wall').css('top',70 + -(scrolled*0.05)+'%');
 
 			if (scrolled > secondContentOffset) {
-				TweenLite.to(secondContent, 0.4, {
+				TweenLite.to(secondContent, 0.8, {
 					autoAlpha: 1,
 					y: '0%',
 					//ease: Sine.easeIn,
