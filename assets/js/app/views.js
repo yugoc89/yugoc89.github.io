@@ -202,8 +202,11 @@ define([
 			this.render();
 		},
 		render: function(){
+			TweenLite.set('.content--services.bottom', {autoAlpha:0, y: '20%'});
 			this.setImageSize();
+			this.parallax();
 			loadAnim();
+			$(this.el).on('scroll', this.parallax);
 			$(window).on('resize', this.setImageSize);
 		},
 		setImageSize: function(){
@@ -211,6 +214,26 @@ define([
 			$('.section--title').css({
 				height: imageWidth*0.69
 			});
+		},
+		parallax: function(){
+			var scrolled = $('.main').scrollTop(),
+				secondContent = $('.content--services.bottom'),
+				secondContentOffset = secondContent.offset().top;
+
+			$('.services-headline').css('top',80.5 + -(scrolled*0.1)+'%');
+			$('.bg--business').css('top',4 + -(scrolled*0.02)+'%');
+			$('.white-wall').css('top',70 + -(scrolled*0.05)+'%');
+
+			if (scrolled > secondContentOffset) {
+				TweenLite.to(secondContent, 0.4, {
+					autoAlpha: 1,
+					y: '0%',
+					//ease: Sine.easeIn,
+				});
+				TweenLite.to('.storyline', 2, {
+					height: '100%'
+				});
+			}
 		}
 	});
 
