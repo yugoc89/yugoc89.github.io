@@ -15,13 +15,30 @@ define([
 
 	var mainLoader = document.getElementById('loader');
 	var loadAnim = function(){
-		TweenLite.to(mainLoader, 1, {
-			alpha: 0,
-			ease: Sine.easeInOut,
-			onComplete: function(){
-				classie.remove( mainLoader, 'show' );
-			}
-		});
+
+		var el = document.getElementById('square');
+		TweenLite.defaultEase = Linear.easeNone;
+		TweenLite.set(el, {autoAlpha: 1});
+
+		var tl = new TimelineLite({ onComplete: Loader() });
+		tl.fromTo(".l1", 1, {height:0}, {height:'100%'})
+		.fromTo(".l2", 1, {width:0}, {width:'100%'})
+		.fromTo(".l3", 1, {height:0}, {height:'100%'})
+		.fromTo(".l4", 1, {width:0}, {width:'100%'});
+
+		tl.timeScale(3);
+
+		function Loader(){
+			TweenLite.to(mainLoader, 1, {
+				alpha: 0,
+				ease: Sine.easeInOut,
+				delay: 1.5,
+				onComplete: function(){
+					classie.remove( mainLoader, 'show' );
+					TweenLite.to(el, 0.4, {autoAlpha: 0});
+				}
+			});
+		}
 	};
 
 	var MainView = Backbone.View.extend({
