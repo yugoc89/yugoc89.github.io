@@ -1,0 +1,37 @@
+<!DOCTYPE html> <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]--> <!--[if IE 7]> <html class="no-js lt-ie9 lt-ie8"> <![endif]--> <!--[if IE 8]> <html class="no-js lt-ie9"> <![endif]--> <!--[if gt IE 8]><!--> <html class=no-js lang=en-GB> <!--<![endif]--> <head> <meta charset=UTF-8> <meta http-equiv=X-UA-Compatible content="IE=edge"> <meta name=viewport content="width=device-width, initial-scale=1 maximum-scale=1 user-scalable=no"> <title>home| C-is</title> <meta name=description> <meta name=keywords> <meta name=author> <meta property=og:title> <meta property=og:site_name> <meta property=og:url> <meta property=og:description> <meta property=article:author> <meta property=article:publisher> <meta property=og:image> <meta property=og:locale content=en_GB> <link rel="shortcut icon" href=/favicon.ico> <link rel=stylesheet href=/style.css> <script src=/assets/js/vendor/modernizr.js></script> </head> <body class=home> <!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]--> <div class="loader show" id=loader><span></span></div> <header class=header role=banner> <a class=navigation-trigger id=navigation-trigger><span>Menu.</span></a> <a class="ajax-trigger home-button" id=home-button href="/">C is...</a> <span class=header__subtitle>We are a self-facilitating media node</span> <span class="button button--back-history"><i></i></span> <nav class=navigation id=navigation role=navigation> <ul> <li><a href=/about><i></i>About</a></li> <li><a href=/works><i></i>Works</a></li> <li><a href=/services><i></i>Services</a></li> <li><a href=/contact><i></i>Contact</a></li> </ul> </nav> </header> <div class=container id=container><main class="main main--home clear" id=main role=main> <div class=center--vertical> <h1><img src=/assets/images/common/main-logo.png></h1> <h2>C can be anything you could imagine</h2> <a href=mailto:info@c-is.co>Contact</a> </div> </main></div> <footer class="footer clear" role=contentinfo> </footer> <script data-main=/assets/js/scripts.min src=/assets/js/vendor/require.min.js></script><script type=text/javascript>
+function Redirect(){
+	//if (screen.width < 1081 || (navigator.userAgent.match(/iPhone/i)) || (navigator.userAgent.match(/iPod/i))) {
+		var ref = document.referrer;
+		var url1 = 'http://c-is.co/mates/y/';
+		var url2 = 'http://yugoc89.worlders.co.uk';
+		var urls = new Array(url1,url2);
+		var n = ref.match(urls[0]);
+		var m = ref.match(urls[1]);
+		if ((m!==null) || (n!==null)) {
+			stop();
+		} else if (ref==='') {
+			var r = confirm("Jump to the portfolio page");
+			if (r===true) {
+				window.location = url2;
+			}
+			else {
+				stop();
+			}
+		} else {
+			window.location = url2;
+		} 
+	//}
+}
+window.onload = Redirect;
+</script> <script>
+		 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		 ga('create', 'UA-xxxxxx', 'auto');
+		 ga('send', 'pageview');
+
+		</script> </body> </html>
