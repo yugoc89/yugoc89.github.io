@@ -60,8 +60,6 @@ define([
 		},
 		servicesAction: function(id) {
 			var restfulPageUrl = id;
-			console.log(id);
-			//var slug = id.split('/')[0];
 			this.switchView({
 				'url': restfulPageUrl,
 				'slug': 'services'
@@ -76,20 +74,17 @@ define([
 			});
 			console.log('pageAction');
 		},
-		restAction: function(slug) {
-			var restfulPageUrl = '/' + slug;
-			this.switchView({
-				'url': restfulPageUrl,
-				'slug': slug,
-				'static': true
-			});
-			console.log('restAction');
-		},
 		switchView: function(arg) {
 			var that = this;
 
 			mainLoader.removeAttribute('style');
 			classie.add( mainLoader, 'show' );
+
+			//if Views exisits, reset them
+			if (currentView) {
+				currentView.remove();
+			}
+
 			//if it's an initial load
 			if (this.start === true) {
 				switchAct('.main');
@@ -98,12 +93,8 @@ define([
 			}
 
 			function switchAct(e, ajax) {
-				//if Views exisits, reset them
-				if (currentView) {
-					currentView.remove();
-				}
-				//if Ajax content has been fired
 				if (ajax) {
+					//if Ajax content has been fired
 					$('.container').append(e);
 					initialise();
 					currentView = new Views.MainView({el:e, id: arg.slug, category: arg.category, page: arg.page, start: true});

@@ -18,10 +18,6 @@ define([
 			localStorage.removeItem(id);
 		}
 	});
-
-	// var SPModel = Backbone.Model.extend({
-	// 	urlRoot: '/'
-	// });
 	
 	//--------------
 	// Return the model classes

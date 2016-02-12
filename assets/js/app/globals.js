@@ -79,7 +79,7 @@ define([
 
 		var resetMenu = function() {
 			TweenLite.to(nav, 0.3, {
-				y: '-100%',
+				y: '-200%',
 				alpha: 0,
 				onComplete: function(){
 					classie.remove(trigger, 'active');
@@ -101,17 +101,11 @@ define([
 			if (Backbone.history.getFragment() === path) {
 				resetMenu();
 			} else {
-				$(this).addClass('clicked');
-				var that = this;
+				var AppRouter = require('app/router'),
+					router = new AppRouter();
 
-				setTimeout(function(){
-					var AppRouter = require('app/router'),
-						router = new AppRouter();
-
-					router.navigate(href, true);
-					$(that).removeClass('clicked');
-					resetMenu();
-				}, 400);
+				router.navigate(href, true);
+				resetMenu();
 			}
 
 		});

@@ -95,8 +95,9 @@ define([
 					el: this.el,
 					id: this.id
 				});
+			} else if(this.page === true){
+				new PageView();
 			} else {
-				//$('.content-inner').html(this.template({ datums: this.slideBG() }));
 				// if browser was Ajaxed
 				if (this.start === true){
 					new BasicView({
@@ -119,7 +120,6 @@ define([
 		//el: $('#main'),
 		events: {
 			'click .main-menu a': 'transitionEffect',
-			'click h1': 'test'
 		},
 		initialize: function(options, categoryId) {
 			console.log('home!!');
@@ -127,7 +127,7 @@ define([
 			this.start = options.start;
 
 			$(this.el).unbind();
-			_.bindAll(this, 'render', 'transitionEffect', 'mainAnim');
+			_.bindAll(this, 'render', 'transitionEffect', 'mainAnim', 'subAnim');
 
 			this.render();
 
@@ -163,15 +163,12 @@ define([
 		},
 		transitionEffect: function(event){
 			event.preventDefault();
-			$(event.currentTarget).addClass('clicked');
 
-			setTimeout(function(){
-				var AppRouter = require('app/router'),
-					router = new AppRouter(),
-					href = $(event.currentTarget).attr('href');
+			var AppRouter = require('app/router'),
+				router = new AppRouter(),
+				href = $(event.currentTarget).attr('href');
 
-				router.navigate(href, true);
-			}, 400);
+			router.navigate(href, true);
 		},
 		mainAnim: function(){
 			var self = this;
@@ -189,6 +186,7 @@ define([
 		},
 		subAnim: function(){
 			var randomz = Math.floor(Math.random() * $(this.el).find('.main-text').length);
+			console.log(randomz);
 			var randomEl = '.main-text-' + randomz;
 			var randomEl2 = '.main-text-' + (randomz-2);
 			var randomEl3 = '.main-text-' + (randomz+2);
@@ -205,9 +203,10 @@ define([
 			this.render();
 		},
 		render: function(){
-			TweenLite.set('.content--services.bottom', {autoAlpha:0, y: '20%'});
+			TweenLite.set('.content--services.bottom', {autoAlpha:0, y: '10%'});
 			this.setImageSize();
 			this.parallax();
+
 			loadAnim('#f6f4f4');
 			$(this.el).on('scroll', this.parallax);
 			$(window).on('resize', this.setImageSize);
@@ -228,7 +227,7 @@ define([
 			$('.white-wall').css('top',70 + -(scrolled*0.05)+'%');
 
 			if (scrolled > secondContentOffset) {
-				TweenLite.to(secondContent, 0.8, {
+				TweenLite.to(secondContent, 1.5, {
 					autoAlpha: 1,
 					y: '0%',
 					//ease: Sine.easeIn,
@@ -237,6 +236,17 @@ define([
 					height: '100%'
 				});
 			}
+		}
+	});
+
+	var PageView = Backbone.View.extend({
+		el: $('.main'),
+		initialize: function(){
+			this.render();
+		},
+		render: function(){
+			console.log('pageview');
+			loadAnim('#504f4f');
 		}
 	});
 
