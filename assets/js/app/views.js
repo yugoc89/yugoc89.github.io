@@ -77,17 +77,17 @@ define([
 		render: function() {
 
 			if(this.id === 'works'){
-				var datums = this.collection.toJSON()[0].data,
-					lazyLoad = Globals.lazyLoad(datums);
+				// var datums = this.collection.toJSON()[0].data,
+				// 	lazyLoad = Globals.lazyLoad(datums);
 
-				$('.content-inner').append(this.template({ datums: lazyLoad[0]}));
+				// $('.content-inner').append(this.template({ datums: lazyLoad[0]}));
 
 				new ArchiveView({
 					el: this.el,
 					id: this.id,
 					category: this.category,
-					collection: this.collection,
-					lazyLoad: lazyLoad,
+					//collection: this.collection,
+					//lazyLoad: lazyLoad,
 				});
 
 			} else if (this.id === 'services'){
@@ -236,6 +236,17 @@ define([
 					height: '100%'
 				});
 			}
+		}
+	});
+
+	var ArchiveView = Backbone.View.extend({
+		el: $('.main'),
+		initialize: function(){
+			this.render();
+		},
+		render: function(){
+			console.log('archiveview');
+			loadAnim('#504f4f');
 		}
 	});
 
