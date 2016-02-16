@@ -14,8 +14,8 @@ define([
 		url: '/',
 		routes: {
 			'': 'homeAction',
-			'services/': 'servicesAction',
 			'*default': 'pageAction',
+			'services/': 'servicesAction',
 		},
 		start: null,
 		history: [],

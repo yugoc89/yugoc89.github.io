@@ -75,8 +75,7 @@ define([
 			// });
 		},
 		render: function() {
-
-			if(this.id === 'works'){
+			if(this.id === 'works' || this.id === 'works/'){
 				// var datums = this.collection.toJSON()[0].data,
 				// 	lazyLoad = Globals.lazyLoad(datums);
 
@@ -90,7 +89,7 @@ define([
 					//lazyLoad: lazyLoad,
 				});
 
-			} else if (this.id === 'services'){
+			} else if (this.id === 'services' || this.id === 'services/'){
 				new ServicesView({
 					el: this.el,
 					id: this.id
@@ -241,12 +240,24 @@ define([
 
 	var ArchiveView = Backbone.View.extend({
 		el: $('.main'),
+		events: {
+			'click .ajax-trigger--single': 'singleAjax'
+		},
 		initialize: function(){
 			this.render();
 		},
 		render: function(){
 			console.log('archiveview');
-			loadAnim('#504f4f');
+			loadAnim('#fff');
+		},
+		singleAjax: function(){
+			var href = $(this).attr('href'),
+				path = href.replace('/', '');
+
+			var AppRouter = require('app/router'),
+				router = new AppRouter();
+
+			router.navigate(href, true);
 		}
 	});
 
