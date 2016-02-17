@@ -1,0 +1,46 @@
+{
+  "posts": {
+    "id": 111,
+    "first_name": "花子",
+    "last_name": "山田",
+    "alphabet": "hanako yamada",
+    "description": "samplesamplesamplesamplesamplesample",
+    "job_title": 1,
+    "experience": 1,
+    "location": 1,
+    "major":1,
+    "instagram": "1111_1111",
+    "main_image": "/assets/images/people/person1.png",
+    "related_info": [
+      {
+        "image": "sample",
+        "description": "ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□"
+      },
+      {
+        "image": "sample",
+        "description": "ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□"
+      },
+      {
+        "image": "sample",
+        "description": "ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□ダミーダミー□□□□□□□□□□□□□□□"
+      }
+    ],
+    "related_works": [
+      {
+        "image": "/assets/images/works/image1.jpg"
+      },
+      {
+        "image": "/assets/images/works/image2.jpg"
+      },
+      {
+        "image": "/assets/images/works/image3.jpg"
+      },
+      {
+        "image": "/assets/images/works/image4.jpg"
+      },
+      {
+        "image": "/assets/images/works/image5.jpg"
+      }
+    ]
+  }
+}

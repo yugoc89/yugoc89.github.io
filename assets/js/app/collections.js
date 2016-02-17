@@ -32,20 +32,7 @@ define([
 	var SingleCollection = Backbone.Collection.extend({
 		model: Models.SingleModel,
 		url: function(){
-			return '/api/get_profile';
-		},
-		initialize: function(models, options){
-			this.options = options;
-		},
-	});
-
-	//--------------
-	// Collection[SP feeling]
-	//--------------
-	var SPCollection = Backbone.Collection.extend({
-		model: Models.SPModel,
-		url: function(){
-			return '/api/get_post';
+			return '/api/get_post.json';
 		},
 		initialize: function(models, options){
 			this.options = options;

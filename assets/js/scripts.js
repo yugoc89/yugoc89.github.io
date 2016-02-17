@@ -7,6 +7,7 @@ require.config({
 		'backbone': '/assets/js/vendor/backbone-min',
 		'TweenLite': '/assets/js/components/TweenMax.min',
 		'TimelineLite':'/assets/js/components/TimelineLite.min',
+		'MixItUp':'/assets/js/components/jquery.mixitup.min'
 	},
 
 	shim: {

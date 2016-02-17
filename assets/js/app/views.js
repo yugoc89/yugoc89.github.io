@@ -7,11 +7,12 @@ define([
 	'classie',
 	'TweenLite',
 	'TimelineLite',
+	'MixItUp',
 	'app/router',
 	'app/collections',
 	'app/models',
 	'app/globals',
-	], function($, _, Backbone, classie, TweenLite, TimelineLite, Router, Collections, Models, Globals){
+	], function($, _, Backbone, classie, TweenLite, TimelineLite, MixItUp, Router, Collections, Models, Globals){
 
 	var mainLoader = document.getElementById('loader');
 	var loadAnim = function(colour){
@@ -241,23 +242,107 @@ define([
 	var ArchiveView = Backbone.View.extend({
 		el: $('.main'),
 		events: {
-			'click .ajax-trigger--single': 'singleAjax'
+			'click .ajax-trigger--single': 'singleAjax',
+			'click .category-nav a': 'cateFilter'
 		},
 		initialize: function(){
+			$(this.el).unbind();
+			_.bindAll(this, 'render', 'singleAjax');
+
 			this.render();
 		},
 		render: function(){
+			this.delegateEvents();
+
 			console.log('archiveview');
 			loadAnim('#fff');
+			$('.work-list').mixItUp();
 		},
-		singleAjax: function(){
-			var href = $(this).attr('href'),
-				path = href.replace('/', '');
+		singleAjax: function(event){
+			event.preventDefault();
 
-			var AppRouter = require('app/router'),
-				router = new AppRouter();
+			var href = $(event.currentTarget).attr('href'),
+				path = href.replace('/', '').split('/')[1];
 
-			router.navigate(href, true);
+			console.log(path);
+
+			var post = new SingleView({
+				el: this.el,
+				slug: path,
+			});
+		},
+		cateFilter: function(event){
+			event.preventDefault();
+			$('.category-nav a').removeClass('active');
+			classie.add(event.currentTarget, 'active');
+		}
+	});
+
+	var SingleView = Backbone.View.extend({
+		el: $('.main'),
+		events: {
+			'click .single-post__close': 'closeContent'
+		},
+		initialize: function(options){
+
+			var self = this;
+
+			this.id = options.id;
+			this.slug = options.slug;
+
+			this.template = _.template($('#template--post').html());
+			this.collection = new Collections.SingleCollection([], { id: this.id, slug: this.slug });
+
+			this.collection.fetch({
+				success: function (collection, response) {
+					self.render(response);
+				},
+				error: function (errorResponse) {
+					console.log(errorResponse);
+				},
+				complete: function(xhr, textStatus) {
+					console.log(textStatus);
+				}
+			});
+		},
+		render: function(){
+
+			var post = document.getElementById('single-post'),
+				inner = document.getElementById('single-post-inner');
+
+			var datums = this.collection.toJSON()[0].posts;
+
+			$('.single-post-inner').html(this.template({ datums: datums }));
+			TweenLite.to('#button--close', 0.3, { autoAlpha: 0});
+			
+			TweenLite.to(post, 0.3, { autoAlpha: 1, height: '100%', onComplete: function(){
+					TweenLite.to('.overlay--single', 0.2, { width: '100%', onComplete: function(){
+							TweenLite.to('.overlay--single', 0.2, { x: '100%' })
+							classie.add(post, 'show');
+						}
+					});
+				}
+			})
+		},
+		closeContent: function(event){
+			event.preventDefault();
+			var post = document.getElementById('single-post'),
+				inner = document.getElementById('single-post-inner');
+
+			TweenLite.to('.overlay--single', 0.2, { x: '0%', onComplete: function(){
+					TweenLite.to('.overlay--single', 0.2, { width: '0%' })
+				}
+			});
+
+			TweenLite.to('#button--close', 0.1, { autoAlpha: 1, onComplete: function(){
+				$(inner).empty();
+				classie.remove(post, 'show');
+			}});
+
+			TweenLite.to(post, 0.6, { autoAlpha: 0, delay: 0.6, onComplete:function(){
+				TweenLite.set(post, { height: '0%' });
+			}});
+
 		}
 	});
 
