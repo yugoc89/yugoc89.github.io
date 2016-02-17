@@ -263,14 +263,45 @@ define([
 		},
 		singleAjax: function(event){
 			event.preventDefault();
+			var self = this;
+
+			var article = $(event.currentTarget).parents('.work-item'),
+				articles = $('.work-item').not(article),
+				postAmount = $('.work-item').length;
+
+			var scrollTop     = $(window).scrollTop(),
+				articlePosition = article.offset().top,
+				distance      = (articlePosition - scrollTop),
+				windowCenter = $(window).height()/2 - article.height()/2,
+				offsetAmount;
+
+			if (distance < 0) {
+				offsetAmount = windowCenter + Math.abs(distance);
+			} else {
+				offsetAmount = windowCenter - Math.abs(distance);
+			}
 
 			var href = $(event.currentTarget).attr('href'),
 				path = href.replace('/', '').split('/')[1];
 
-			var post = new SingleView({
-				el: this.el,
-				slug: path,
-			});
+			if (postAmount === 1) {
+				TweenLite.to(article, 0.4, { y: offsetAmount, onComplete: function(){
+					new SingleView({
+						el: self.el,
+						slug: path,
+					});
+				}});
+			} else {
+				TweenLite.to(articles, 0.6, { alpha: 0, onComplete: function(){
+					TweenLite.to(article, 0.4, { y: offsetAmount, onComplete: function(){
+						new SingleView({
+							el: self.el,
+							slug: path,
+						});
+					}});
+				}});
+			}
+
 		},
 		cateFilter: function(event){
 			event.preventDefault();
@@ -314,9 +345,9 @@ define([
 			var datums = this.collection.toJSON()[0].posts;
 
 			$('.single-post-inner').html(this.template({ datums: datums }));
-			TweenLite.to('#button--close', 0.3, { autoAlpha: 0});
+			TweenLite.to('#button--close', 0.3, { autoAlpha: 0, delay: 0.6 });
 
-			TweenLite.to(post, 0.3, { autoAlpha: 1, height: '100%', onComplete: function(){
+			TweenLite.to(post, 0.3, { autoAlpha: 1, height: '100%', delay: 0.6, onComplete: function(){
 				TweenLite.to('.overlay--single', 0.2, { width: '100%', onComplete: function(){
 					TweenLite.to('.overlay--single', 0.2, { x: '100%' });
 					classie.add(post, 'show');
@@ -327,6 +358,8 @@ define([
 			event.preventDefault();
 			var post = document.getElementById('single-post'),
 				inner = document.getElementById('single-post-inner');
+
+			TweenLite.set('.work-item', { y: '0%', alpha: 1 });
 
 			TweenLite.to('.overlay--single', 0.2, { x: '0%', onComplete: function(){
 				TweenLite.to('.overlay--single', 0.2, { width: '0%' });
