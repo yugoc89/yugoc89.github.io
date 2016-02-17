@@ -12,9 +12,10 @@ define([
 	var BasicCollection = Backbone.Collection.extend({
 		model: Models.BasicModel,
 		url: function(){
-			if (this.options.id  === 'personal') {
+			console.log(this.options.id);
+			if (this.options.id  === 'works' || this.options.id  === 'works/') {
 				//personal or feeling page
-				return '/api/get_profile';
+				return '/api/get_posts.json';
 			} else {
 				//home用
 				return '/api/get_profile';

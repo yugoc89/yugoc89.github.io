@@ -118,12 +118,8 @@ define([
 			} else {
 				classie.add(trigger, 'active');
 				classie.add(nav, 'navigation--show');
-				TweenLite.to(nav, 0.3, {
-					y: '0%',
-					alpha: 1
-				});
+				TweenLite.to(nav, 0.3, { y: '0%', alpha: 1 });
 				TweenLite.to('.home-button', 0.4, {alpha: 0});
-				//document.body.style.overflowY = 'hidden';
 			}
 		});
 	}

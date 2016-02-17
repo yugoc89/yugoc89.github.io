@@ -1,8 +1,9 @@
 {
   "posts": {
-    "id": 111,
+    "id": 1,
     "title": "flowers",
-    "description": "samplesamplesamplesamplesamplesample",
+    "category": "web design",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
     "main_image": "/assets/images/works/000001.jpg",
     "images": [
       {
@@ -10,15 +11,6 @@
       },
       {
         "image": "/assets/images/works/image2.jpg"
-      },
-      {
-        "image": "/assets/images/works/image3.jpg"
-      },
-      {
-        "image": "/assets/images/works/image4.jpg"
-      },
-      {
-        "image": "/assets/images/works/image5.jpg"
       }
     ]
   }

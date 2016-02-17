@@ -1,0 +1,82 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "flowers",
+      "category": "photography",
+      "class": "photography",
+      "url": "/works/flowers",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
+      "main_image": "/assets/images/works/000001.jpg",
+      "images": [
+        {
+          "image": "/assets/images/works/image1.jpg"
+        },
+        {
+          "image": "/assets/images/works/image2.jpg"
+        },
+        {
+          "image": "/assets/images/works/image3.jpg"
+        },
+        {
+          "image": "/assets/images/works/image4.jpg"
+        },
+        {
+          "image": "/assets/images/works/image5.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "more flowers",
+      "category": "web design",
+      "class": "web-design",
+      "url": "/works/flowers",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "main_image": "/assets/images/works/fa1.jpg",
+      "images": [
+        {
+          "image": "/assets/images/works/image1.jpg"
+        },
+        {
+          "image": "/assets/images/works/image2.jpg"
+        },
+        {
+          "image": "/assets/images/works/image3.jpg"
+        },
+        {
+          "image": "/assets/images/works/image4.jpg"
+        },
+        {
+          "image": "/assets/images/works/image5.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "multiple flowers",
+      "category": "graphic design",
+      "class": "graphic-design",
+      "url": "/works/flowers",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "main_image": "/assets/images/works/yzfilms.jpg",
+      "images": [
+        {
+          "image": "/assets/images/works/image1.jpg"
+        },
+        {
+          "image": "/assets/images/works/image2.jpg"
+        },
+        {
+          "image": "/assets/images/works/image3.jpg"
+        },
+        {
+          "image": "/assets/images/works/image4.jpg"
+        },
+        {
+          "image": "/assets/images/works/image5.jpg"
+        }
+      ]
+    }
+  ]
+}
