@@ -5,7 +5,7 @@
       "title": "flowers",
       "category": "photography",
       "class": "photography",
-      "url": "/works/flowers",
+      "post_url": "/works/flowers",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
       "main_image": "/assets/images/works/000001.jpg",
       "images": [
@@ -31,8 +31,9 @@
       "title": "more flowers",
       "category": "web design",
       "class": "web-design",
-      "url": "/works/flowers",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "post_url": "/works/flowers",
+      "skillset": "Skillset: Photoshop, Illustrator, Kiev 88, HTML5, css3, Javascript, JQuery, Ajax, Instagram API",
       "main_image": "/assets/images/works/fa1.jpg",
       "images": [
         {
@@ -57,7 +58,7 @@
       "title": "multiple flowers",
       "category": "graphic design",
       "class": "graphic-design",
-      "url": "/works/flowers",
+      "post_url": "/works/flowers",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "main_image": "/assets/images/works/yzfilms.jpg",
       "images": [

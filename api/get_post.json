@@ -1,16 +1,18 @@
 {
   "posts": {
     "id": 1,
-    "title": "flowers",
+    "title": "Sun Platinum",
     "category": "web design",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.",
-    "main_image": "/assets/images/works/000001.jpg",
+    "description": "Beauty Salon Sun’s official website creation.<br><br>We’ve done creating a business card and invitation card, web design, photo shooting and web coding. There’d been absolute nothing to use for the website but only one concept: ‘gentle, warm and bright like the sun’.<br>I went to the salon for photo shooting for the first time of my work and now the photos are used on the main background.<br>Also I’ve introduced some cool and trendy animations like Javascript Ajax load and the whole website works seamlessly without paginations.",
+    "url": "http://sun-platinum.com/",
+    "skillset": "Photoshop, Illustrator, Kiev 88, HTML5, css3, Javascript, JQuery, Ajax, Instagram API",
+    "main_image": "/assets/images/works/sun1.jpg",
     "images": [
       {
-        "image": "/assets/images/works/image1.jpg"
+        "image": "/assets/images/works/sun2.jpg"
       },
       {
-        "image": "/assets/images/works/image2.jpg"
+        "image": "/assets/images/works/sun3.jpg"
       }
     ]
   }
