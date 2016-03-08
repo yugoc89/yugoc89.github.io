@@ -24,7 +24,8 @@
         {
           "image": "/assets/images/works/image5.jpg"
         }
-      ]
+      ],
+      "post_size": "largest"
     },
     {
       "id": 2,
@@ -51,7 +52,8 @@
         {
           "image": "/assets/images/works/image5.jpg"
         }
-      ]
+      ],
+      "post_size": "large"
     },
     {
       "id": 3,
@@ -77,7 +79,8 @@
         {
           "image": "/assets/images/works/image5.jpg"
         }
-      ]
+      ],
+      "post_size": "large"
     }
   ]
 }
